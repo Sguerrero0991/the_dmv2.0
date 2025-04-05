@@ -5,7 +5,6 @@ class Facility
               :services, 
               :registered_vehicles, 
               :collected_fees
-
   def initialize(attributes)
     @name = attributes[:name]
     @address = attributes[:address]
@@ -20,19 +19,19 @@ class Facility
   end
 
   def register_vehicle(vehicle)
-   if vehicle.antique? == true 
-      @collected_fees + 25 
-      @registered_vehicles << vehicle
-   elsif vehicle.electric_vehicle? == true
-      @collected_fees + 200
-      @registered_vehicles << vehicle
-   else vehicle 
-      @collected_fees + 100
-      @registered_vehicles << vehicle
-   end
+   if vehicle.antique? 
+      @collected_fees += 25
+      vehicle.plate_type = :antique
+   elsif vehicle.electric_vehicle? 
+      @collected_fees += 200
+      vehicle.plate_type = :ev
+   else  
+      @collected_fees += 100
+      vehicle.plate_type = :regular
+    end 
+    vehicle.registration_date = Date.today
+    @registered_vehicles << vehicle
   end
-
-  
 
   
 end

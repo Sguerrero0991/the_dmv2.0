@@ -33,7 +33,6 @@ RSpec.describe Facility do
     @facility_1.add_service('Vehicle Registration')
   end 
 
-
   describe 'Vehicle Registration' do
     it 'can check a registration date' do
       expect(@cruz.registration_date).to eq(nil)
@@ -52,9 +51,19 @@ RSpec.describe Facility do
     end
 
     it 'assigns a plate_type to a vehicle' do
+      expect(@facility_1.register_vehicle(@cruz)).to eq([@cruz])
       expect(@cruz.plate_type).to eq(:regular)
-      
     end
+
+    before(:each) do
+      @registrant_1 = Registrant.new('Bruce', 18, true )
+      @registrant_2 = Registrant.new('Penny', 16 )
+      @registrant_3 = Registrant.new('Tucker', 15 )
+      @facility_1 = Facility.new({name: 'DMV Tremont Branch', address: '2855 Tremont Place Suite 118 Denver CO 80205', phone: '(720) 865-4600'})
+      @facility_2 = Facility.new({name: 'DMV Northeast Branch', address: '4685 Peoria Street Suite 101 Denver CO 80239', phone: '(720) 865-4600'})
+    end
+
+    
 
 
 
