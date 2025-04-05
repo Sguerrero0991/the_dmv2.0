@@ -33,5 +33,9 @@ class Facility
     @registered_vehicles << vehicle
   end
 
+  def administer_written_test
+    
+  end
+
   
 end

@@ -63,7 +63,12 @@ RSpec.describe Facility do
       @facility_2 = Facility.new({name: 'DMV Northeast Branch', address: '4685 Peoria Street Suite 101 Denver CO 80239', phone: '(720) 865-4600'})
     end
 
-    
+    it 'checks if a facility can administer a written test' do
+      expect(@facility_1.administer_written_test(registrant_1)).to eq(false)
+    end
+
+
+
 
 
 
