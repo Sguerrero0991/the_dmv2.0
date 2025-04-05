@@ -18,10 +18,10 @@ class Vehicle
   end
 
   def antique?
-    Date.today.year - @year > 25
+    Date.today.year - @year >= 25
   end
 
-  def electric_vehicle?
+  def electric_vehicle? 
     @engine == :ev
   end
 end
