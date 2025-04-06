@@ -41,5 +41,18 @@ class Facility
     end 
   end
 
+  def administer_road_test(registrant)
+    # binding.pry
+    if @services.include?('Road Test') && registrant.license_data[:written] == true
+      registrant.license_data[:license] = true 
+    else 
+      registrant.license_data[:license]
+    end
+  end
+
+  #A road test can only be administered to registrants who have passed the written test
+  #For simplicity’s sake, Registrants who qualify for the road test automatically earn a license
+
+
   
 end
