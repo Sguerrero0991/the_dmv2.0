@@ -33,8 +33,12 @@ class Facility
     @registered_vehicles << vehicle
   end
 
-  def administer_written_test
-    
+  def administer_written_test(registrant)
+    if @services.include?('Written Test') && registrant.permit? && registrant.age >= 16 
+      registrant.license_data[:written] = true
+    else 
+      registrant.license_data[:written]
+    end 
   end
 
   
