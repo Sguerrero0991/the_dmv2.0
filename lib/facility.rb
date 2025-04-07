@@ -42,7 +42,6 @@ class Facility
   end
 
   def administer_road_test(registrant)
-    # binding.pry
     if @services.include?('Road Test') && registrant.license_data[:written] == true
       registrant.license_data[:license] = true 
     else 
@@ -57,10 +56,5 @@ class Facility
       registrant.license_data[:renewed]
     end
   end
-
-  #A license can only be renewed if the registrant has already passed the road test and earned a license
-
-
-
   
 end
