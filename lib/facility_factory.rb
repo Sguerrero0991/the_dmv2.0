@@ -17,12 +17,12 @@ class FacilityFactory
         phone: data[:public_phone_number]
       })
       elsif location == "Missouri"
+        facility = Facility.new({
+        name: data[:name],
+        address: data[:address1],
+        phone: data[:phone]
+      })
       end 
     end 
   end
 end
-
-# extra agruement, if the location is NY 
-# if it's NY location 
-#   we're only adding additonal services
-# end

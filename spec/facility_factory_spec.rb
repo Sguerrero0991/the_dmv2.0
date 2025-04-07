@@ -5,7 +5,7 @@ RSpec.describe FacilityFactory do
     @facility_factory = FacilityFactory.new
     @co_dmv_office_locations = DmvDataService.new.co_dmv_office_locations
     @new_york_facilities = DmvDataService.new.ny_dmv_office_locations
-    
+    @missouri_facilities = DmvDataService.new.mo_dmv_office_locations
     # binding.pry
   end
 
@@ -33,13 +33,13 @@ RSpec.describe FacilityFactory do
     expect(facilities[0].phone).to eq(nil)
   end
 
-  it 'creates a CO location' do
-    facilities = @facility_factory.create_factories("Missouri", )
+  it 'creates a MO location' do
+    facilities = @facility_factory.create_factories("Missouri", @missouri_facilities = DmvDataService.new.mo_dmv_office_locations)
     expect(facilities).to be_a(Array)
     
     expect(facilities[0]).to be_a(Facility)
-    expect(facilities[0].name).to eq("LAKE PLACID")
-    expect(facilities[0].address).to eq("2693 MAIN STREET")
-    expect(facilities[0].phone).to eq(nil)
+    expect(facilities[0].name).to eq("Cameron")
+    expect(facilities[0].address).to eq("508 Lana DR")
+    expect(facilities[0].phone).to eq("(816) 632-4830")
   end
 end 
