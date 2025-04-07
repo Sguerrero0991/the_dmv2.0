@@ -35,9 +35,4 @@ RSpec.describe VehicleFactory do
     expect(vehicles[3].model).to eq("Mustang Mach-E")
     expect(vehicles[3].engine).to eq(:ev)
   end
-
-
-
-  
-
 end 
